@@ -3,18 +3,24 @@
     Flask API
 </h1>
 
+## Introduction:
+I create this repository to test Flask and Postgres connection with SQLAlchemy ORM.
+
 ## Steps to start this proyect:
-- create database test;
-- export DATABASE_URL="postgresql://postgres:secret@localhost/test"
-- export APP_SETTINGS="config.Config"
-- python manage.py db init
-- python manage.py db migrate
-- python manage.py db upgrade
+- **Create Postgres:** create database test;
+- **Add environment variable like:**
+  - export DATABASE_URL="postgresql://postgres:secret@localhost/test"
+  - export APP_SETTINGS="config.Config"
+- **Run migrations:**
+  - python manage.py db init
+  - python manage.py db migrate
+  - python manage.py db upgrade
 
 ## To do:
 * [ ] Add tests
-* [ ] Make good schemas
 * [ ] Deploy with Docker
+* [ ] API docs
+* [ ] Full 12FactorApp
 
 ## My microservices and software developement best practices references:
 
