@@ -1,0 +1,8 @@
+# Editor configs
+.vscode
+
+# Virtual enviroments
+env
+
+*__pycache__
+migrations
