@@ -13,7 +13,7 @@ ma = Marshmallow(app)
 
 class Video(db.Model):
     """ Video Model """
-    __tablename__ = 'tasks'
+    __tablename__ = 'videos'
     id = db.Column(db.Integer, primary_key=True)
     url = db.Column(db.String(200))
     duration = db.Column(db.Integer)
