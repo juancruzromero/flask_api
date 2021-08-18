@@ -12,6 +12,7 @@ db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
 class Video(db.Model):
+    """ Video Model """
     __tablename__ = 'tasks'
     id = db.Column(db.Integer, primary_key=True)
     url = db.Column(db.String(200))
@@ -29,23 +30,23 @@ class Video(db.Model):
         return f'<Broser DATA {self.browser_data}>'
 
 class VideoSchema(ma.Schema):
+    """ Video Schema """
     class Meta:
         fields = ('url', 'duration', 'quality','browser_data')
 
 task_schema = VideoSchema()
 tasks_schema = VideoSchema(many=True)
 
+# Views:
 @app.route('/')
 def index():
     """ Index view """
     return "<h1 style='color': red>Hello from flask!</h1>"
 
-@app.route('/tasks/<id>', methods=['GET'])
+@app.route('/videos/<id>', methods=['GET'])
 def get_task(id):
     """ Get task view """
-    from models import Task
-    from schemas import task_schema
-    task = Task.query.get(id)
+    task = Video.query.get(id)
     return task_schema.jsonify(task)
 
 if __name__ == '__main__':
