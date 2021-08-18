@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img align="center"; src="https://flask.palletsprojects.com/en/2.0.x/_static/flask-icon.png"; width="30"; height="30">
+  <img align="center"; src="https://flask.palletsprojects.com/en/2.0.x/_static/flask-icon.png"; width="10"; height="10">
     Flask API
 </h1>
 
