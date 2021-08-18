@@ -44,7 +44,7 @@ def index():
     return "<h1 style='color': red>Hello from flask!</h1>"
 
 @app.route('/videos/<id>', methods=['GET'])
-def get_task(id):
+def get_video(id):
     """ Get task view """
     task = Video.query.get(id)
     return task_schema.jsonify(task)
@@ -68,11 +68,6 @@ def get_tasks():
     all_tasks = Video.query.all()
     result = tasks_schema.dump(all_tasks)
     return tasks_schema.jsonify(result)
-
-@app.route('/videos/<id>', methods=['GET'])
-def get_task(id):
-    task = Video.query.get(id)
-    return task_schema.jsonify(task)
 
 @app.route('/videos/<id>', methods=['PUT'])
 def update_task(id):
