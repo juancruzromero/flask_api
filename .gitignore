@@ -4,5 +4,6 @@
 # Virtual enviroments
 env
 
+# Other files to ignore
 *__pycache__
 migrations
