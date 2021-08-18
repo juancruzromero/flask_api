@@ -1,6 +1,6 @@
 """ API initialization script """
 
-from flask import Flask
+from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import os
@@ -32,7 +32,7 @@ class Video(db.Model):
 class VideoSchema(ma.Schema):
     """ Video Schema """
     class Meta:
-        fields = ('url', 'duration', 'quality','browser_data')
+        fields = ('url', 'duration', 'quality')
 
 task_schema = VideoSchema()
 tasks_schema = VideoSchema(many=True)
@@ -48,6 +48,50 @@ def get_task(id):
     """ Get task view """
     task = Video.query.get(id)
     return task_schema.jsonify(task)
+
+@app.route('/video', methods=['POST'])
+def create():
+    # from models import Task
+    url = request.json['url']
+    duration = request.json['duration']
+    quality = request.json['quality']
+    broser_data = str(request.remote_user) #TODO: CHECK
+    # browser_data viene del request
+
+    new_task = Video(url, duration, quality, broser_data)
+    db.session.add(new_task)
+    db.session.commit()
+    return task_schema.jsonify(new_task)
+
+@app.route('/videos', methods=['GET'])
+def get_tasks():
+    all_tasks = Video.query.all()
+    result = tasks_schema.dump(all_tasks)
+    return tasks_schema.jsonify(result)
+
+@app.route('/videos/<id>', methods=['GET'])
+def get_task(id):
+    task = Video.query.get(id)
+    return task_schema.jsonify(task)
+
+@app.route('/videos/<id>', methods=['PUT'])
+def update_task(id):
+    pass
+    # task = Video.query.get(id)
+
+    # content = request.json['content']
+    # task.content = content
+    # db.session.commit()
+
+    # return task_schema.jsonify(task)
+
+@app.route('/videos/<id>', methods=['DELETE'])
+def delete_task(id):
+    task = Video.query.get(id)
+    db.session.delete(task)
+    db.session.commit()
+    return task_schema.jsonify(task)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
