@@ -1,6 +1,11 @@
+""" API Models"""
+
 from app import db
 
 class Task(db.Model):
+    """
+    Easy model example
+    """
     __tablename__ = 'tasks'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200))
