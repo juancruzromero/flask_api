@@ -1,6 +1,6 @@
 """ API initialization script """
 
-from flask import Flask, request
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
 
