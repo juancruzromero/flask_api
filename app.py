@@ -62,31 +62,6 @@ def create():
     db.session.add(new_task)
     db.session.commit()
     return task_schema.jsonify(new_task)
-
-@app.route('/videos', methods=['GET'])
-def get_tasks():
-    all_tasks = Video.query.all()
-    result = tasks_schema.dump(all_tasks)
-    return tasks_schema.jsonify(result)
-
-@app.route('/videos/<id>', methods=['PUT'])
-def update_task(id):
-    pass
-    # task = Video.query.get(id)
-
-    # content = request.json['content']
-    # task.content = content
-    # db.session.commit()
-
-    # return task_schema.jsonify(task)
-
-@app.route('/videos/<id>', methods=['DELETE'])
-def delete_task(id):
-    task = Video.query.get(id)
-    db.session.delete(task)
-    db.session.commit()
-    return task_schema.jsonify(task)
-
-
+    
 if __name__ == '__main__':
     app.run(debug=True)
