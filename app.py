@@ -28,6 +28,12 @@ class Video(db.Model):
     def __repr__(self):
         return f'<Broser DATA {self.browser_data}>'
 
+class VideoSchema(ma.Schema):
+    class Meta:
+        fields = ('url', 'duration', 'quality','browser_data')
+
+task_schema = VideoSchema()
+tasks_schema = VideoSchema(many=True)
 
 @app.route('/')
 def index():

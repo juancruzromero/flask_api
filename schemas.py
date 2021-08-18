@@ -1,9 +1,9 @@
 """ API Schemas/serializers"""
 from app import ma
 
-class TaskSchema(ma.Schema):
+class VideoSchema(ma.Schema):
     class Meta:
-        fields = ('content', 'done')
+        fields = ('url', 'duration', 'quality','browser_data')
 
-task_schema = TaskSchema()
-tasks_schema = TaskSchema(many=True)
+task_schema = VideoSchema()
+tasks_schema = VideoSchema(many=True)
