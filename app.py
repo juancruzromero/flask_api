@@ -51,11 +51,10 @@ def get_video(id):
 
 @app.route('/video', methods=['POST'])
 def create():
-    # from models import Task
     url = request.json['url']
     duration = request.json['duration']
     quality = request.json['quality']
-    broser_data = str(request.headers.get('User-Agent'))
+    broser_data = str(request.headers.get('User-Agent')) # Not remote_user xD
     new_task = Video(url, duration, quality, broser_data)
     db.session.add(new_task)
     db.session.commit()
