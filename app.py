@@ -55,9 +55,7 @@ def create():
     url = request.json['url']
     duration = request.json['duration']
     quality = request.json['quality']
-    broser_data = str(request.remote_user) #TODO: CHECK
-    # browser_data viene del request
-
+    broser_data = str(request.headers.get('User-Agent'))
     new_task = Video(url, duration, quality, broser_data)
     db.session.add(new_task)
     db.session.commit()
