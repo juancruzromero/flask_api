@@ -45,7 +45,7 @@ def index():
 
 @app.route('/videos/<id>', methods=['GET'])
 def get_video(id):
-    """ Get task view """
+    """ Get video view """
     task = Video.query.get(id)
     return task_schema.jsonify(task)
 
