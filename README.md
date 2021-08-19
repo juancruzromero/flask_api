@@ -7,7 +7,7 @@
 I create this repository to test Flask and Postgres connection with SQLAlchemy ORM.
 
 ## Steps to start this proyect:
-- **Create Postgres:** create database test;
+- **Create Postgres Database:** create database crehana;
 - **Add environment variable like:**
   - export DATABASE_URL="postgresql://postgres:secret@localhost/crehana"
   - export APP_SETTINGS="config.Config"
