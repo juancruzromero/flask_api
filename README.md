@@ -17,7 +17,7 @@ I create this repository to test Flask and Postgres connection with SQLAlchemy O
   - python manage.py db upgrade
 
 ## To do:
-* [ ] Modelo + Detectar de que Browser llega el request.
+* [x] Modelo + Detectar de que Browser llega el request.
 * [ ] Add tests
 * [ ] Deploy with Docker
 * [ ] API docs
