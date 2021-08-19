@@ -18,6 +18,7 @@ I create this repository to test Flask and Postgres connection with SQLAlchemy O
 
 ## To do:
 * [x] Model + Detect request's browser.
+* [x] API CRUD.
 * [ ] Add tests
 * [ ] Deploy with Docker
 * [ ] API docs
